@@ -23,9 +23,8 @@ func InsertSort(num []int) {
 	len := len(num)
 
 	for end := 1; end < len; end++ {
-		newNumIndex := end
-		for ; newNumIndex-1 >= 0 && num[newNumIndex] < num[newNumIndex-1]; newNumIndex-- {
-			swap(num, newNumIndex, newNumIndex-1)
+		for pre := end; pre-1 >= 0 && num[pre] < num[pre-1]; pre-- {
+			swap(num, pre, pre-1)
 		}
 	}
 }
