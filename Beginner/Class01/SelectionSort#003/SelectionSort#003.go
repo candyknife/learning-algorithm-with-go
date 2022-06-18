@@ -1,6 +1,12 @@
+/* ————————————————————————————————————————
+问题类别：排序
+问题描述：给定数组array，对其进行选择排序
+时间复杂度：
+空间复杂度：
+———————————————————————————————————————— */
 package main
 
-import "fmt"
+import slc "learning-algorithm-with-go/src/slice"
 
 func SelectionSort(num []int) {
 	if len(num) < 2 {
@@ -17,27 +23,14 @@ func SelectionSort(num []int) {
 				minValueIndex = j
 			}
 		}
-		swap(num, i, minValueIndex)
+		slc.Swap(num, i, minValueIndex)
 	}
-}
-
-func swap(num []int, i int, j int) {
-	temp := num[i]
-	num[i] = num[j]
-	num[j] = temp
-}
-
-func PrintSlice(arr []int) {
-	for _, v := range arr {
-		fmt.Printf("%v ", v)
-	}
-	fmt.Println()
 }
 
 func main() {
 	arr := []int{3, 17, 8, 39, 100, 15, 12, 2}
 
-	PrintSlice(arr)
+	slc.Print(arr)
 	SelectionSort(arr)
-	PrintSlice(arr)
+	slc.Print(arr)
 }

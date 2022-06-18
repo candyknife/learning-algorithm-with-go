@@ -1,19 +1,12 @@
+/* ————————————————————————————————————————
+问题类别：排序
+问题描述：给定数组array，对其进行插入排序
+时间复杂度：
+空间复杂度：
+———————————————————————————————————————— */
 package main
 
-import "fmt"
-
-func PrintSlice(arr []int) {
-	for _, v := range arr {
-		fmt.Printf("%v ", v)
-	}
-	fmt.Println()
-}
-
-func swap(num []int, i int, j int) {
-	temp := num[i]
-	num[i] = num[j]
-	num[j] = temp
-}
+import slc "learning-algorithm-with-go/src/slice"
 
 func InsertSort(num []int) {
 	if len(num) < 2 {
@@ -24,7 +17,7 @@ func InsertSort(num []int) {
 
 	for end := 1; end < len; end++ {
 		for pre := end; pre-1 >= 0 && num[pre] < num[pre-1]; pre-- {
-			swap(num, pre, pre-1)
+			slc.Swap(num, pre, pre-1)
 		}
 	}
 }
@@ -32,7 +25,7 @@ func InsertSort(num []int) {
 func main() {
 	arr := []int{3, 17, 8, 39, 100, 15, 12, 2}
 
-	PrintSlice(arr)
+	slc.Print(arr)
 	InsertSort(arr)
-	PrintSlice(arr)
+	slc.Print(arr)
 }
